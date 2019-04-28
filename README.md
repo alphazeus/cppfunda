@@ -15,4 +15,4 @@ system("pause");
 system("cls");
 ```
 Output:
-![Tree]()
+![Tree](Images/tree.PNG)
