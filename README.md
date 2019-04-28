@@ -16,4 +16,5 @@ system("pause");
 system("cls");
 ```
 Output:
+
 ![Tree](Images/tree.PNG)
