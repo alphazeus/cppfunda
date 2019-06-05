@@ -1,5 +1,6 @@
 #include<iostream>
 #include<queue>
+
 class person{
 public:
 	int num;
@@ -10,24 +11,32 @@ public:
 		right=NULL;
 	}
 };
+
+//Inorder traversal
 void inorder(person *root){
 	if(root==NULL)return;
 	inorder(root->left);
 	std::cout<<root->num;
 	inorder(root->right);
 }
+
+//Preorder traversal
 void preorder(person *root){
 	if(root==NULL)return;
 	std::cout<<root->num;	
 	preorder(root->left);
 	preorder(root->right);
 }
+
+//Postorder traversal
 void postorder(person *root){
 	if(root==NULL)return;
 	postorder(root->left);
 	postorder(root->right);
 	std::cout<<root->num;
 }
+
+//Level order traversal
 void levelorder(person *root){
 	if(root==NULL)return;
 	std::queue<person *> temp;
