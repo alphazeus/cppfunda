@@ -81,29 +81,6 @@ node *deletenode(node *root,int val){
 	return root;
 }
 
-
-//Find Kth largrest element from BST
-int kthlargest(node *root,int k){
-	if(root==NULL){
-		return 0;
-	}
-	int r = kthlargest(root->right,k);
-	if(k-(r+1)==0)
-		std::cout<<root->data;
-	int l=kthlargest(root->left,k-(r+1));
-	return l+r+1;
-}
-
-//Find kth smallest element from BST
-int kthsmallest(node *root,int k){
-	if(root==NULL)
-		return 0;
-	int l=kthsmallest(root->left,k);
-	if(k-(l+1)==0)
-		std::cout<<root->data;
-	int r=kthsmallest(root->right,k-(l+1));
-	return l+r+1;
-}
 int main(){	
 	node *root=NULL;
 	root=insertbst(root,1);
@@ -121,12 +98,5 @@ int main(){
 	std::cout<<"\n";
 	dispbst(root);
 	std::cout<<"\n";
-	kthlargest(root,3);
-	std::cout<<"\n";
-	kthlargest(root,1);
-	std::cout<<"\n";
-	kthsmallest(root,3);
-	std::cout<<"\n";
-	kthsmallest(root,2);
 	delete(root);
 }
