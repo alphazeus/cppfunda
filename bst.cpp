@@ -57,10 +57,17 @@ node *deletenode(node *root,int val){
 		std::cout<<"Element to be deleted not found";
 		return root;
 	}
+	//Traverse till the key element to delete is found
 	if(root->data > val)
 		root->left=deletenode(root->left,val);
 	if(root->data < val)
 		root->right=deletenode(root->right,val);
+
+	/*If key element found, check:
+		1: If element has no child
+		2: If element has one child
+		3: If element has two children */
+	
 	else{
 		if(root->left==NULL){
 			node * temp= root->right;
@@ -72,6 +79,11 @@ node *deletenode(node *root,int val){
 			delete(root);
 			return temp;
 		}
+		/*If element has two children:
+			1:Find the inorder successor
+			2:Swap the root with inorder successor
+			3.Repeat the delete function to delete the inorder successor*/
+		
 		else{
 			node *temp= inordersuccessor(root->right);
 			root->data = temp->data;
